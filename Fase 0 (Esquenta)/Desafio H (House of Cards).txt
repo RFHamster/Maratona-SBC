@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+     long double a,b,delta,c;
+     long long r;
+     int x,i;
+     cin>>x;
+    a=3;
+    b=1;
+    for(i=0;i<x;i++){
+    cin>>c;
+    c=c*2;
+    delta = (b*b) + (4*a*c);
+    r=(-b + sqrt(delta))/(2*a);
+    cout<<r<<endl;
+    }
+    return 0;
+}

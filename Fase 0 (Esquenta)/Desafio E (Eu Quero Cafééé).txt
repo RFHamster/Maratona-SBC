@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+    int n;
+    int l;
+    int d;
+    
+    scanf("%d", &n);
+    scanf("%d", &l);
+    scanf("%d", &d);
+    
+    int total = n * d;
+    int litros = l * 1000;
+
+    while(total > litros){
+        litros = litros + (l*1000);
+    }
+    
+    litros = litros/1000;
+    printf("%d\n", litros);
+    
+
+    return 0;
+}

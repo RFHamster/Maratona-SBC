@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    string nomeAluno;
+    float notas[4];
+    int t;
+    float media = 0;
+    cout<<fixed<<setprecision(1);
+    cin>>t;
+    cin.ignore();
+    for(int i = 0; i < t; i++){
+        getline(cin,nomeAluno);
+
+        float notas[4] = {0.0,0.0,0.0,0.0};
+        int num = 0;
+        float numero;
+        char proxChar;
+        while(scanf("%f%c", &numero, &proxChar) == 2) { 
+            notas[num] = numero;
+            num++;
+            if(proxChar == '\n') break; 
+        }
+
+        if(notas[2] == 0){
+            media = (notas[0] + notas[1])/2;
+            cout<<nomeAluno<<": "<<media<<endl;
+        }else if(notas[3] == 0){
+            media = (notas[0] + notas[1] + notas[2])/3;
+            cout<<nomeAluno<<": "<<media<<endl;
+        }else{
+            if(notas[0] < notas[1]){
+                if(notas[0] < notas[2]){
+                    if(notas[0] < notas[3]){
+                        notas[0] = notas[3];
+                    }
+                }else{
+                    if(notas[2] < notas[3]){
+                        notas[2] = notas[3];
+                    }
+                }
+            }else{
+                if(notas[1] < notas[2]){
+                    if(notas[1] < notas[3]){
+                        notas[1] = notas[3];
+                    }
+                }else{
+                    if(notas[2] < notas[3]){
+                        notas[2] = notas[3];
+                    }
+                }
+            }
+            media = (notas[0] + notas[1] + notas[2])/3;
+            cout<<nomeAluno<<": "<<media<<endl;
+        }
+    }
+
+
+    return 0;
+}

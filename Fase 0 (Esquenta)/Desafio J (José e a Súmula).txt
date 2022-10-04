@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int a,b,c,i;
+    char q;
+    cin>>a;
+    for(i=0; i<a;i++){
+        cin>>b>>c>>q;
+        if(c==1){
+            if(b>45){
+                b=b-45;
+                cout<<45<<"+"<<b<<endl;
+            }else{
+                cout<<b<<endl;
+            }
+        }else{
+            if(b>45){
+                b=b-45;
+                cout<<90<<"+"<<b<<endl;
+            }else{
+                b=b+45;
+                cout<<b<<endl;
+            }
+            
+        }
+  
+    }
+
+    return 0;
+}
