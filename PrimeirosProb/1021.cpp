@@ -8,7 +8,6 @@ int main(){
     vector<int> notas = {2,5,10,20,50,100};
     vector<int> moedas = {1,5,10,25,50};
 
-
     cin >> N;
 
     aux = N;
@@ -22,6 +21,7 @@ int main(){
         cout << aux/atual << " nota(s) de R$ " << atual << ".00\n";
         aux = (aux%atual);
     }
+    
     cout << "MOEDAS:\n";
     cout << aux << " moeda(s) de R$ 1.00\n";
 

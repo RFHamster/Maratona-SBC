@@ -35,6 +35,7 @@ int main(){
     int i = 0;
     int flag;
     int flag2;
+    int flag3;
     int cont;
     int caso = 1;
     int acerto;
@@ -42,6 +43,7 @@ int main(){
         i = 0;
         flag = 0;
         flag2 = 0;
+        flag3 = 0;
         acerto = 0;
         while(n>1){
             cont = 0;
@@ -53,13 +55,24 @@ int main(){
                     break;
                 }
             }
+            if(cont >= 9){
+                acerto = 1;
+                break;
+            }
             if(cont > 0){
                 flag2++;
             }
             if(cont >= 2){
                 flag++;
             }
+            if(cont >= 5){
+                flag3++;
+            }
             if(flag >= 2 || flag2>=4){
+                acerto = 1;
+                break;
+            }
+            if(flag2 >= 2 && flag3 >= 1){
                 acerto = 1;
                 break;
             }
