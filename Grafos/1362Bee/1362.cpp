@@ -13,9 +13,7 @@ int pessoas;
 bool flag = false;
 int contadorMatching;
 
-
-long int visitados;
-bool matchPessoa(int pessoa){
+bool matchPessoa(int pessoa, long int visitados){
     visitados = visitados | 1 << pessoa;
     if(boolRelPessoa & (1 << pessoa)){
         string prevMatch = matchingPessoa[pessoa];
@@ -32,7 +30,7 @@ bool matchPessoa(int pessoa){
             vector<int>::iterator i;
             for(i = matchingCamisa[s].begin();i != matchingCamisa[s].end();++i){
                 if(!(visitados & (1<<*i))){
-                    if(matchPessoa(*i)){
+                    if(matchPessoa(*i, visitados)){
                         *i = pessoa;
                         matchingPessoa[pessoa] = s;
                         return true;
@@ -58,7 +56,7 @@ bool matchPessoa(int pessoa){
         vector<int>::iterator i;
         for(i = matchingCamisa[s].begin();i != matchingCamisa[s].end();++i){
             if(!(visitados & (1<<*i))){
-                if(matchPessoa(*i)){
+                if(matchPessoa(*i, visitados)){
                     *i = pessoa;
                     matchingPessoa[pessoa] = s;
                     contadorMatching++;
@@ -134,8 +132,7 @@ int main(){
         flag = false;
         for(int i = 0; i < pessoas;i++){
             if(!(boolRelPessoa & (1 << i))){
-                visitados = 0;
-                if(!matchPessoa(i)){
+                if(!matchPessoa(i,0)){
                     cout << "NO" << endl;
                     break;
                 }
